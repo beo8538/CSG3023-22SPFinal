@@ -64,11 +64,11 @@ public class Ball : MonoBehaviour
 
         if (isInPlay == false)
         {
-            
+            //transform.Translate(); //move ball to paddle position
         }
 
         /**See if player pressed Space Bar to Start game**/
-        if(Input.GetKeyDown(KeyCode.Space) && isInPlay == false)
+       if(Input.GetKeyDown(KeyCode.Space) && isInPlay == false)
         {
             isInPlay = true; //changes the play to true
             Move(); //calls on the move method
@@ -76,17 +76,18 @@ public class Ball : MonoBehaviour
     }//end Update()
 
 
+
     private void LateUpdate()
     {
         if(isInPlay == true)
         {
-           // rb.velocity *= speed; //need to fix
+          rb.velocity *= speed; //need to fix
         }
     }//end LateUpdate()
 
     void Move()
     {
-        //rb.AddForce(initialForce); //need to fix
+        rb.AddForce(initialForce); //need to fix
     }
 
     private void OnCollisionEnter(Collision collision)
